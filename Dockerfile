@@ -9,11 +9,11 @@ COPY composer.json /var/www/composer.json
 COPY composer.lock /var/www/composer.lock
 COPY config /var/www/config
 COPY public /var/www/html
+COPY plugins /var/www/src/plugins
 COPY scripts /var/www/scripts
 COPY src /var/www/src
-COPY plugins /var/www/src/plugins
 COPY var /var/www/var
-COPY common/config.d /var/www/config/common.d
+COPY docker/common/config.d /var/www/config/common.d
 COPY docker/recreate-pending-pcache-cron.sh /recreate-pending-pcache-cron.sh
 COPY docker/jobs-cron.sh /jobs-cron.sh
 COPY docker/entrypoint.sh /entrypoint.sh
@@ -52,7 +52,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	cd /var/www && composer.phar install && \
 	# Instalação dos pacotes node
 	cd /var/www/src && pnpm install --recursive && pnpm run build && \
-	sass themes/BaseV1/assets/css/sass/main.scss:themes/BaseV1/assets/css/main.css && \
+	#sass themes/BaseV1/assets/css/sass/main.scss:themes/BaseV1/assets/css/main.css && \
 	# alteração das permissões 
 	ln -s /var/www/html /var/www/public && \
 	chown www-data:www-data -R /var/www && \
