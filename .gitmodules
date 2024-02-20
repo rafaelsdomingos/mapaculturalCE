@@ -1,0 +1,3 @@
+[submodule "plugins/MultipleLocalAuth"]
+	path = plugins/MultipleLocalAuth
+	url = git@github.com:mapasculturais/plugin-MultipleLocalAuth.git
