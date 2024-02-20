@@ -21,7 +21,7 @@ COPY version.txt /var/www/version.txt
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	imagemagick libmagickcore-dev libmagickwand-dev \
+	imagemagick libmagickcore-dev libmagickwand-dev git \
 	libcurl4-gnutls-dev libpq-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev libzip-dev libzstd1 && \
 	# Instalação do node
 	curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
